@@ -1,0 +1,4 @@
+rootProject.name = 'spring-integration-test'
+
+include 'library'
+include 'application'
