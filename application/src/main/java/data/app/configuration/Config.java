@@ -61,7 +61,7 @@ public class Config {
     public ToDataOutputRouter toDataOutputRouter() {
         return new ToDataOutputRouter();
     }
-
+/*
     @Bean
     public MessageSource<InputStream> myStream() {
         return new InputStream() {
@@ -71,6 +71,7 @@ public class Config {
             }
         };
     }
+    */
 
     @Bean
     public IntegrationFlow flow() {

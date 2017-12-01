@@ -45,8 +45,8 @@ public class Application implements CommandLineRunner {
         MySupplier supplier = new MySupplier(service);
         try {
             while (true) {
-                int value = IntStream.generate(supplier).iterator().nextInt();
-                //int value = service.getNextValue();
+                //int value = IntStream.generate(supplier).iterator().nextInt();
+                int value = service.getNextValue();
                 Message<?> message = new GenericMessage<>(value);
                 fromChannel.send(message);
             }
