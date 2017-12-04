@@ -14,7 +14,7 @@ import org.springframework.messaging.Message;
 public class Application implements CommandLineRunner {
 
     @Autowired
-    private MessageSource<Integer> messageSource;
+    private MessageSource<Integer> inboundChannelAdapter;
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(Application.class)
@@ -24,14 +24,13 @@ public class Application implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         while (true) {
-            Message<Integer> message = messageSource.receive();
+            Message<Integer> message = inboundChannelAdapter.receive();
             if (message == null) {
                 break;
             }
             System.out.println(message);
         }
-
     }
 }

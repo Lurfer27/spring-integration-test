@@ -20,22 +20,22 @@ import java.util.NoSuchElementException;
 public class Config {
 
     @Autowired
-    private Service service;
+    private Service externalSource;
 
     @Autowired
     private ToDataServiceActivator toDataServiceActivator;
 
     @Bean
-    public MessageSource<Integer> integerMessageSource() {
-        MessageSource<Integer> messageSource = () -> {
+    public MessageSource<Integer> inboundChannelAdapter() {
+        MessageSource<Integer> inboundChannelAdapter = () -> {
             try {
-                int value = service.getNextValue();
+                int value = externalSource.getNextValue();
                 return new GenericMessage<>(value);
             } catch (NoSuchElementException e) {
                 return null;
             }
         };
-        return messageSource;
+        return inboundChannelAdapter;
     }
 
     @Bean

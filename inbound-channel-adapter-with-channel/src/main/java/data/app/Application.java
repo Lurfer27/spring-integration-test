@@ -15,7 +15,7 @@ import org.springframework.messaging.Message;
 public class Application implements CommandLineRunner {
 
     @Autowired
-    private MessageSource<Integer> messageSource;
+    private MessageSource<Integer> externalSource;
 
     @Autowired
     private DirectChannel fromChannel;
@@ -30,12 +30,11 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         while (true) {
-            Message<Integer> message = messageSource.receive();
+            Message<Integer> message = externalSource.receive();
             if (message == null) {
                 break;
             }
             fromChannel.send(message);
         }
-
     }
 }

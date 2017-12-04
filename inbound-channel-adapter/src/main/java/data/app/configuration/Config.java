@@ -4,7 +4,6 @@ import data.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.core.MessageSource;
 import org.springframework.messaging.support.GenericMessage;
 
@@ -14,18 +13,18 @@ import java.util.NoSuchElementException;
 public class Config {
 
     @Autowired
-    private Service service;
+    private Service externalSource;
 
     @Bean
-    public MessageSource<Integer> integerMessageSource() {
-        MessageSource<Integer> messageSource = () -> {
+    public MessageSource<Integer> inboundChannelAdapter() {
+        MessageSource<Integer> retVal = () -> {
             try {
-                int value = service.getNextValue();
+                int value = externalSource.getNextValue();
                 return new GenericMessage<>(value);
             } catch (NoSuchElementException e) {
                 return null;
             }
         };
-        return messageSource;
+        return retVal;
     }
 }

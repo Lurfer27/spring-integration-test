@@ -17,28 +17,19 @@ import java.util.NoSuchElementException;
 public class Config {
 
     @Autowired
-    private Service service;
+    private Service externalSource;
 
     @Bean
-    public MessageSource<Integer> integerMessageSource() {
-        MessageSource<Integer> messageSource = () -> {
+    public MessageSource<Integer> inboundChannelAdapter() {
+        MessageSource<Integer> retVal = () -> {
             try {
-                int value = service.getNextValue();
+                int value = externalSource.getNextValue();
                 return new GenericMessage<>(value);
             } catch (NoSuchElementException e) {
                 return null;
             }
         };
-        return messageSource;
-    }
-
-    @Bean
-    public IntegrationFlow flow() {
-        return IntegrationFlows
-            .from(fromChannel())
-            .handle(outputRouter())
-            .get();
-
+        return retVal;
     }
 
     @Bean
@@ -53,5 +44,13 @@ public class Config {
     @Bean
     public OutputRouter outputRouter() {
         return new OutputRouter();
+    }
+
+    @Bean
+    public IntegrationFlow flow() {
+        return IntegrationFlows
+            .from(fromChannel())
+            .handle(outputRouter())
+            .get();
     }
 }
