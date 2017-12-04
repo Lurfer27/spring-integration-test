@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application.iml" group="application" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application_main.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application_main.iml" group="application" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application_test.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application_test.iml" group="application" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inbound-channel-adapter.iml" filepath="$PROJECT_DIR$/.idea/modules/inbound-channel-adapter.iml" group="inbound-channel-adapter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_main.iml" group="inbound-channel-adapter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_test.iml" group="inbound-channel-adapter" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/library.iml" group="library" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/library_main.iml" filepath="$PROJECT_DIR$/.idea/modules/library/library_main.iml" group="library" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/library_test.iml" filepath="$PROJECT_DIR$/.idea/modules/library/library_test.iml" group="library" />
