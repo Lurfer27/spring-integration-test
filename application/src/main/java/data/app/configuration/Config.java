@@ -3,7 +3,6 @@ package data.app.configuration;
 import data.app.endpoints.*;
 import data.app.model.FromData;
 import data.app.model.ToData;
-import data.app.stream.MySupplier;
 import data.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,10 +12,10 @@ import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.handler.LoggingHandler;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.GenericMessage;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.stream.IntStream;
+import java.util.NoSuchElementException;
 
 @Configuration
 public class Config {
@@ -26,6 +25,19 @@ public class Config {
 
     @Autowired
     private ToDataServiceActivator toDataServiceActivator;
+
+    @Bean
+    public MessageSource<Integer> integerMessageSource() {
+        MessageSource<Integer> messageSource = () -> {
+            try {
+                int value = service.getNextValue();
+                return new GenericMessage<>(value);
+            } catch (NoSuchElementException e) {
+                return null;
+            }
+        };
+        return messageSource;
+    }
 
     @Bean
     public DirectChannel fromChannel() {
@@ -61,17 +73,6 @@ public class Config {
     public ToDataOutputRouter toDataOutputRouter() {
         return new ToDataOutputRouter();
     }
-/*
-    @Bean
-    public MessageSource<InputStream> myStream() {
-        return new InputStream() {
-            @Override
-            public int read() throws IOException {
-                return service.getNextValue();
-            }
-        };
-    }
-    */
 
     @Bean
     public IntegrationFlow flow() {

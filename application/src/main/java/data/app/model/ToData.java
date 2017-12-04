@@ -1,7 +1,5 @@
 package data.app.model;
 
-import javax.annotation.PostConstruct;
-
 public class ToData {
 
     private Integer id;
