@@ -3,4 +3,5 @@ rootProject.name = 'spring-integration-test'
 include 'library'
 include 'application'
 include 'inbound-channel-adapter'
+include 'inbound-channel-adapter-with-channel'
 

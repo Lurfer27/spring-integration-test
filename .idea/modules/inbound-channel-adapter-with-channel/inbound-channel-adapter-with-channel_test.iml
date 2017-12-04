@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":application:test" external.linked.project.path="$MODULE_DIR$/../../../application" external.root.project.path="$MODULE_DIR$/../../../inbound-channel-adapter-with-channel" external.system.id="GRADLE" external.system.module.group="spring-integration-test" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":inbound-channel-adapter-with-channel:test" external.linked.project.path="$MODULE_DIR$/../../../inbound-channel-adapter-with-channel" external.root.project.path="$MODULE_DIR$/../../../inbound-channel-adapter-with-channel" external.system.id="GRADLE" external.system.module.group="spring-integration-test" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output-test url="file://$MODULE_DIR$/../../../application/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../inbound-channel-adapter-with-channel/out/test/classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../../application/src/test">
-      <sourceFolder url="file://$MODULE_DIR$/../../../application/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../application/src/test/resources" type="java-test-resource" />
+    <content url="file://$MODULE_DIR$/../../../inbound-channel-adapter-with-channel/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../inbound-channel-adapter-with-channel/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../inbound-channel-adapter-with-channel/src/test/resources" type="java-test-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="application_main" />
+    <orderEntry type="module" module-name="inbound-channel-adapter-with-channel_main" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:1.5.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-integration:1.5.8.RELEASE" level="project" />
     <orderEntry type="module" module-name="library_main" />
@@ -63,5 +63,5 @@
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.11" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.0.3" level="project" />
   </component>
-  <component name="TestModuleProperties" production-module="application_main" />
+  <component name="TestModuleProperties" production-module="inbound-channel-adapter-with-channel_main" />
 </module>
