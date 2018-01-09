@@ -1,6 +1,8 @@
 package data.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -13,7 +15,7 @@ import org.springframework.messaging.Message;
 
 @SpringBootApplication
 @Import(value = ServiceConfiguration.class)
-public class Application implements CommandLineRunner {
+public class Application implements ApplicationRunner {
 
     @Autowired
     private MessageSource<Integer> messageSource;
@@ -28,7 +30,15 @@ public class Application implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(ApplicationArguments args) throws Exception {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Application started with the following arguments:-");
+        for (String arg : args.getSourceArgs()) {
+            builder.append("\n");
+            builder.append(arg);
+        }
+        System.out.println(builder.toString());
+
         while (true) {
             Message<Integer> message = messageSource.receive();
             if (message == null) {

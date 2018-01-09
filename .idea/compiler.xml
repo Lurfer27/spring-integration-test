@@ -8,6 +8,8 @@
       <module name="inbound-channel-adapter-with-channel_test" target="1.8" />
       <module name="inbound-channel-adapter_main" target="1.8" />
       <module name="inbound-channel-adapter_test" target="1.8" />
+      <module name="iocbasics_main" target="1.8" />
+      <module name="iocbasics_test" target="1.8" />
       <module name="library_main" target="1.8" />
       <module name="library_test" target="1.8" />
     </bytecodeTargetLevel>
