@@ -20,4 +20,19 @@
           factory-method="valueOf">
         <constructor-arg value="blue"/>
     </bean>
+
+    <bean id="colorRandomizer"
+          class="com.yodel.model.ColorRandomizer"/>
+
+    <!-- Gets a random color -->
+    <bean id="randomColor"
+          factory-bean="colorRandomizer"
+          factory-method="randomColor"/>
+
+    <!-- Gets any color, except the random color defined above -->
+    <bean id="exclusiveColor"
+          factory-bean="colorRandomizer"
+          factory-method="exceptColor">
+        <constructor-arg ref="randomColor"/>
+    </bean>
 </beans>

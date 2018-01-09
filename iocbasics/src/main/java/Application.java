@@ -7,9 +7,15 @@ public class Application {
 
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("ioc_basics.xml");
+
         BasicPOJO red = ctx.getBean("constructor-setup", BasicPOJO.class);
         BasicPOJO mario = ctx.getBean("no-args", BasicPOJO.class);
         System.out.println(red.getName() + ":" + red.getColor());
         System.out.println(mario.getName() + ":" + mario.getColor());
+
+        ColorEnum colorEnum = ctx.getBean("randomColor", ColorEnum.class);
+        System.out.println("randomColor:" + colorEnum);
+        colorEnum = ctx.getBean("exclusiveColor", ColorEnum.class);
+        System.out.println("exclusiveColor:" + colorEnum);
     }
 }
