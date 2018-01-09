@@ -22,17 +22,24 @@
     </bean>
 
     <bean id="colorRandomizer"
-          class="com.yodel.model.ColorRandomizer"/>
+          class="com.yodel.controller.ColorRandomizer"/>
 
-    <!-- Gets a random color -->
-    <bean id="randomColor"
+    <!-- Gets a random color, same every time -->
+    <bean id="randomColorAlwaysTheSame"
           factory-bean="colorRandomizer"
-          factory-method="randomColor"/>
+          factory-method="randomColor"
+          scope="singleton"/>
+
+    <!-- Gets a random color, different every time -->
+    <bean id="randomColorAlwaysDifferent"
+          factory-bean="colorRandomizer"
+          factory-method="randomColor"
+          scope="prototype"/>
 
     <!-- Gets any color, except the random color defined above -->
     <bean id="exclusiveColor"
           factory-bean="colorRandomizer"
           factory-method="exceptColor">
-        <constructor-arg ref="randomColor"/>
+        <constructor-arg ref="randomColorAlwaysTheSame"/>
     </bean>
 </beans>

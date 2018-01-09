@@ -1,4 +1,6 @@
-package com.yodel.model;
+package com.yodel.controller;
+
+import com.yodel.model.ColorEnum;
 
 import java.util.Random;
 
