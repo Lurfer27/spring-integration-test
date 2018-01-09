@@ -1,3 +1,7 @@
+package com.yodel.model;
+
+import com.yodel.model.ColorEnum;
+
 public class BasicPOJO {
 
     public String name;
