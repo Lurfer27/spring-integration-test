@@ -1,11 +1,9 @@
 package com.yodel.model;
 
-import com.yodel.model.ColorEnum;
-
 public class BasicPOJO {
 
-    public String name;
-    public ColorEnum color;
+    private String name;
+    private ColorEnum color;
 
     public BasicPOJO() {
     }
@@ -20,6 +18,7 @@ public class BasicPOJO {
     }
 
     public void setName(String name) {
+        System.out.println("setName:" + name);
         this.name = name;
     }
 
@@ -28,6 +27,7 @@ public class BasicPOJO {
     }
 
     public void setColor(ColorEnum color) {
+        System.out.println("setColor:" + color);
         this.color = color;
     }
 }

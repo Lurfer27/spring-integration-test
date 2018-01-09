@@ -3,5 +3,21 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean class="com.yodel.model.BasicPOJO"/>
+    <bean id="constructor-setup"
+          class="com.yodel.model.BasicPOJO">
+        <constructor-arg name="name" value="red"/>
+        <constructor-arg name="color" value="violet"/>
+    </bean>
+
+    <bean id="no-args"
+          class="com.yodel.model.BasicPOJO">
+        <property name="name" value="Mario"/>
+        <property name="color" ref="defaultColor"/>
+    </bean>
+
+    <bean id="defaultColor"
+          class="com.yodel.model.ColorEnum"
+          factory-method="valueOf">
+        <constructor-arg value="blue"/>
+    </bean>
 </beans>
