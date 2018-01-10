@@ -1,6 +1,10 @@
+import com.yodel.configuration.Config;
 import com.yodel.model.BasicPOJO;
 import com.yodel.model.LoggingColorRandomizer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.File;
@@ -8,8 +12,8 @@ import java.io.File;
 public class Application {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("ioc_basics.xml");
-        //ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
+        //ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("ioc_basics.xml");
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
         for (String beanName : context.getBeanDefinitionNames()) {
             System.out.println(beanName);
