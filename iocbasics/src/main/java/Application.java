@@ -1,29 +1,33 @@
-import com.yodel.configuration.Config;
 import com.yodel.model.BasicPOJO;
-import com.yodel.model.LoggingColorRandomizer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.File;
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.yodel.configuration","com.yodel.model"})
+public class Application implements CommandLineRunner {
 
-public class Application {
+    @Autowired
+    ConfigurableApplicationContext context;
 
     public static void main(String[] args) {
+        new SpringApplicationBuilder(Application.class).web(false).run(args);
         //ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("ioc_basics.xml");
-        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        //ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
+    }
 
-        for (String beanName : context.getBeanDefinitionNames()) {
+    @Override
+    public void run(String... args) throws Exception {
+        for (String beanName : this.context.getBeanDefinitionNames()) {
             System.out.println(beanName);
         }
-        //System.out.println(context.getBean("logFile", File.class).getName());
-        //System.out.println(context.getBean("loggingColorRandomizer", LoggingColorRandomizer.class).randomColor());
-        BasicPOJO autowired = context.getBean("basicPOJO", BasicPOJO.class);
+        BasicPOJO autowired = this.context.getBean("basicPOJO", BasicPOJO.class);
         System.out.println(autowired.getName());
         System.out.println(autowired.getLoggingColorRandomizer().randomColor());
 
-        context.close();
+        this.context.close();
     }
 }

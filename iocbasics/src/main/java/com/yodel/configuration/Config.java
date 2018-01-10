@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Scope;
 import java.io.File;
 
 @Configuration
-@ComponentScan(basePackages = {"com.yodel.configuration","com.yodel.model"})
 public class Config {
 
     @Bean(name = "logFile")
