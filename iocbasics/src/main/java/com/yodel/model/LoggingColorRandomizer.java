@@ -1,5 +1,7 @@
 package com.yodel.model;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,6 +21,20 @@ public class LoggingColorRandomizer extends ColorRandomizer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @PostConstruct
+    public void setUp() throws IOException {
+        final boolean append = true;
+        writer = new FileWriter(this.logFile, append);
+        writeFileLine("loggingColorRandomizer.setUp()");
+    }
+
+    @PreDestroy
+    public void tearDown() throws IOException {
+        writeFileLine("loggingColorRandomizer.tearDown()");
+        writer.flush();
+        writer.close();
     }
 
     public void init() throws IOException {
