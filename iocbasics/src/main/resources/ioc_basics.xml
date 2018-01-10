@@ -4,21 +4,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:annotation-config/>
-
-    <bean id="basicPOJO"
-          class="com.yodel.model.BasicPOJO">
-        <property name="name" value="basicPOJOName"/>
-        <property name="loggingColorRandomizer" ref="loggingColorRandomizer"/>
-    </bean>
-
-    <bean id="loggingColorRandomizer"
-          class="com.yodel.model.LoggingColorRandomizer">
-        <property name="logFile" ref="colorLogFile"/>
-    </bean>
-
-    <bean id="colorLogFile"
-          class="java.io.File">
-        <constructor-arg value="colorLog.txt"/>
-    </bean>
+    <context:component-scan base-package="com.yodel.configuration"/>
+    <context:component-scan base-package="com.yodel.model"/>
 </beans>

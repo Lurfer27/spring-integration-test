@@ -1,5 +1,11 @@
 package com.yodel.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BasicPOJO {
 
     private String name;
@@ -12,7 +18,10 @@ public class BasicPOJO {
         return name;
     }
 
-    public void setName(String name) {
+    @Autowired(required = true)
+    public void setName(
+        @Value("defaultName") String name
+    ) {
         this.name = name;
     }
 
@@ -20,7 +29,10 @@ public class BasicPOJO {
         return loggingColorRandomizer;
     }
 
-    public void setLoggingColorRandomizer(LoggingColorRandomizer loggingColorRandomizer) {
+    @Autowired(required = true)
+    public void setLoggingColorRandomizer(
+        @Qualifier(value = "loggingColorRandomizer") LoggingColorRandomizer loggingColorRandomizer
+    ) {
         this.loggingColorRandomizer = loggingColorRandomizer;
     }
 }

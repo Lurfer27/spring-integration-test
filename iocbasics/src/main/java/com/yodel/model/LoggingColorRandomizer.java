@@ -1,17 +1,25 @@
 package com.yodel.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+@Component
 public class LoggingColorRandomizer extends ColorRandomizer {
 
     private File logFile;
     private FileWriter writer;
 
-    public void setLogFile(File logFile) {
+    @Autowired(required = true)
+    public void setLogFile(
+        @Qualifier(value = "logFile") File logFile
+    ) {
         this.logFile = logFile;
     }
 
@@ -33,18 +41,6 @@ public class LoggingColorRandomizer extends ColorRandomizer {
     @PreDestroy
     public void tearDown() throws IOException {
         writeFileLine("loggingColorRandomizer.tearDown()");
-        writer.flush();
-        writer.close();
-    }
-
-    public void init() throws IOException {
-        final boolean append = true;
-        writer = new FileWriter(this.logFile, append);
-        writeFileLine("loggingColorRandomizer.init()");
-    }
-
-    public void destroy() throws IOException {
-        writeFileLine("loggingColorRandomizer.destroy()");
         writer.flush();
         writer.close();
     }
