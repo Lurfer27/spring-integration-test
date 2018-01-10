@@ -1,12 +1,10 @@
-package com.yodel.controller;
-
-import com.yodel.model.ColorEnum;
+package com.yodel.model;
 
 import java.util.Random;
 
 public class ColorRandomizer {
 
-    ColorEnum colorException;
+    private ColorEnum colorException;
 
     public ColorEnum randomColor() {
         ColorEnum[] allColors = ColorEnum.values();
@@ -31,5 +29,4 @@ public class ColorRandomizer {
     public void setColorException(ColorEnum colorException) {
         this.colorException = colorException;
     }
-
 }

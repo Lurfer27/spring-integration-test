@@ -3,14 +3,9 @@ package com.yodel.model;
 public class BasicPOJO {
 
     private String name;
-    private ColorEnum color;
+    private LoggingColorRandomizer loggingColorRandomizer;
 
     public BasicPOJO() {
-    }
-
-    public BasicPOJO(String name, ColorEnum color) {
-        this.name = name;
-        this.color = color;
     }
 
     public String getName() {
@@ -18,16 +13,14 @@ public class BasicPOJO {
     }
 
     public void setName(String name) {
-        System.out.println("setName:" + name);
         this.name = name;
     }
 
-    public ColorEnum getColor() {
-        return color;
+    public LoggingColorRandomizer getLoggingColorRandomizer() {
+        return loggingColorRandomizer;
     }
 
-    public void setColor(ColorEnum color) {
-        System.out.println("setColor:" + color);
-        this.color = color;
+    public void setLoggingColorRandomizer(LoggingColorRandomizer loggingColorRandomizer) {
+        this.loggingColorRandomizer = loggingColorRandomizer;
     }
 }
