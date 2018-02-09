@@ -5,6 +5,7 @@
       <configuration>
         <fileset id="fileset" name="Ioc_basics" removed="false">
           <file>file://$MODULE_DIR$/../../../iocbasics/src/main/java/ioc_basics.xml</file>
+          <file>file://$MODULE_DIR$/../../../iocbasics/src/main/resources/context.xml</file>
         </fileset>
       </configuration>
     </facet>

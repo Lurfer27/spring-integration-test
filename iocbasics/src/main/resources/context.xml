@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.springframework.org/schema/integration"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/integration
+        http://www.springframework.org/schema/integration/spring-integration.xsd">
+
+    <gateway id="csvGateway"
+             service-interface="com.yodel.integration.services.CsvService"
+             default-request-channel="names"/>
+
+    <channel id="names"/>
+
+    <service-activator input-channel="names"
+                       ref="csvService"
+                       method="convertToStringArray"/>
+
+    <beans:bean id="csvService"
+                class="com.yodel.integration.services.StringCsvService"/>
+</beans:beans>
