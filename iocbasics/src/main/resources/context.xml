@@ -9,15 +9,25 @@
         http://www.springframework.org/schema/integration/spring-integration.xsd">
 
     <gateway id="csvGateway"
-             service-interface="com.yodel.integration.services.CsvService"
-             default-request-channel="names"/>
+             service-interface="com.yodel.integration.services.CsvReader"
+             default-request-channel="csvRecordChannel"/>
 
-    <channel id="names"/>
+    <channel id="csvRecordChannel"/>
 
-    <service-activator input-channel="names"
-                       ref="csvService"
-                       method="convertToStringArray"/>
+    <service-activator input-channel="csvRecordChannel"
+                       ref="csvReaderService"
+                       method="toList"/>
 
-    <beans:bean id="csvService"
-                class="com.yodel.integration.services.StringCsvService"/>
+    <beans:bean id="csvReaderService"
+                class="com.yodel.integration.services.StringCsvReader"/>
+
+    <beans:bean id="stringReaderBean"
+                class="java.io.StringReader"
+                scope="prototype">
+        <beans:constructor-arg value=""/>
+    </beans:bean>
+
+    <beans:bean id="stringBuilderBean"
+                class="java.lang.StringBuilder"
+                scope="prototype"/>
 </beans:beans>
