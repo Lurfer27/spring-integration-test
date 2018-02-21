@@ -11,10 +11,15 @@ public class Application {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         CsvReader csvReader = context.getBean("csvGateway", CsvReader.class);
-        List<?> list = csvReader.toList("World,Cup");
 
-        for (Object o : list) {
-            System.out.println(o.toString());
+        for (String s : args) {
+            System.out.println(s);
+
+            List<?> list = csvReader.toList(s);
+
+            for (Object o : list) {
+                System.out.println(o.toString());
+            }
         }
     }
 }
