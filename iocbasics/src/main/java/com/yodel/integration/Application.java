@@ -4,6 +4,7 @@ import com.yodel.integration.services.CsvReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.StringReader;
 import java.util.List;
 
 public class Application {
@@ -14,8 +15,9 @@ public class Application {
 
         for (String s : args) {
             System.out.println(s);
+            StringReader stringReader = (StringReader) context.getBean("stringReaderBean", s);
 
-            List<?> list = csvReader.toList(s);
+            List<?> list = csvReader.toList(stringReader);
 
             for (Object o : list) {
                 System.out.println(o.toString());

@@ -1,25 +1,13 @@
 package com.yodel.integration.services;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-
 import java.io.IOException;
-import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class StringCsvReader implements CsvReader<String>, BeanFactoryAware {
+public abstract class StringCsvReader implements CsvReader<StringReader> {
 
     private static final char Comma = ',';
-
-    private BeanFactory beanFactory;
-
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        this.beanFactory = beanFactory;
-    }
 
     private static boolean IsDelimiter(char inChar) {
         if (inChar == Comma) {
@@ -31,13 +19,12 @@ public abstract class StringCsvReader implements CsvReader<String>, BeanFactoryA
     protected abstract StringBuilder createStringBuilder();
 
     @Override
-    public List<?> toList(String csvRecord) {
-        Reader reader = (StringReader) this.beanFactory.getBean("stringReaderBean", csvRecord);
+    public List<?> toList(StringReader csvRecord) {
         List<String> list = new ArrayList<>();
 
         try {
             StringBuilder stringBuilder = this.createStringBuilder();
-            int charAsInt = reader.read();
+            int charAsInt = csvRecord.read();
             while (charAsInt != -1) {
                 char c = (char) charAsInt;
                 if (IsDelimiter(c)) {
@@ -46,10 +33,10 @@ public abstract class StringCsvReader implements CsvReader<String>, BeanFactoryA
                 } else {
                     stringBuilder.append(c);
                 }
-                charAsInt = reader.read();
+                charAsInt = csvRecord.read();
             }
             list.add(stringBuilder.toString());
-            reader.close();
+            csvRecord.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
