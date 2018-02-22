@@ -10,7 +10,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringCsvReader implements CsvReader<String>, BeanFactoryAware {
+public abstract class StringCsvReader implements CsvReader<String>, BeanFactoryAware {
 
     private static final char Comma = ',';
 
@@ -28,19 +28,21 @@ public class StringCsvReader implements CsvReader<String>, BeanFactoryAware {
         return false;
     }
 
+    protected abstract StringBuilder createStringBuilder();
+
     @Override
     public List<?> toList(String csvRecord) {
         Reader reader = (StringReader) this.beanFactory.getBean("stringReaderBean", csvRecord);
         List<String> list = new ArrayList<>();
 
         try {
-            StringBuilder stringBuilder = this.beanFactory.getBean("stringBuilderBean", StringBuilder.class);
+            StringBuilder stringBuilder = this.createStringBuilder();
             int charAsInt = reader.read();
             while (charAsInt != -1) {
                 char c = (char) charAsInt;
                 if (IsDelimiter(c)) {
                     list.add(stringBuilder.toString());
-                    stringBuilder = this.beanFactory.getBean("stringBuilderBean", StringBuilder.class);
+                    stringBuilder = this.createStringBuilder();
                 } else {
                     stringBuilder.append(c);
                 }

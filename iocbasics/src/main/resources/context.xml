@@ -19,7 +19,9 @@
                        method="toList"/>
 
     <beans:bean id="csvReaderService"
-                class="com.yodel.integration.services.StringCsvReader"/>
+                class="com.yodel.integration.services.StringCsvReader">
+        <beans:lookup-method name="createStringBuilder" bean="stringBuilderBean"/>
+    </beans:bean>
 
     <beans:bean id="stringReaderBean"
                 class="java.io.StringReader"
