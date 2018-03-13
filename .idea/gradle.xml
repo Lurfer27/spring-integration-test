@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/inbound-channel-adapter" />
             <option value="$PROJECT_DIR$/inbound-channel-adapter-with-channel" />
             <option value="$PROJECT_DIR$/iocbasics" />
+            <option value="$PROJECT_DIR$/kafka-outbound-channel-adapter" />
             <option value="$PROJECT_DIR$/library" />
           </set>
         </option>

@@ -1,5 +1,8 @@
 package com.yodel.integration.services;
 
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -18,8 +21,18 @@ public abstract class StringCsvReader implements CsvReader<StringReader> {
 
     protected abstract StringBuilder createStringBuilder();
 
+    @Retryable(
+            value = {IllegalArgumentException.class},
+            maxAttempts = 3,
+            backoff = @Backoff(delay = 1000, multiplier = 2)
+    )
     @Override
     public List<?> toList(StringReader csvRecord) {
+
+        if (csvRecord != null) {
+            throw new IllegalArgumentException("ddd");
+        }
+
         List<String> list = new ArrayList<>();
 
         try {

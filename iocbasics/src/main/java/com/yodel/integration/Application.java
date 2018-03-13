@@ -23,5 +23,8 @@ public class Application {
                 System.out.println(o.toString());
             }
         }
+
+        String myString = context.getBean("getMessage", String.class);
+        System.out.println(myString);
     }
 }
