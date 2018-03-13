@@ -1,0 +1,24 @@
+buildscript {
+    ext { springBootVersion = '1.5.8.RELEASE' }
+    repositories { mavenCentral() }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-integration")
+
+    compile group: "org.springframework.kafka", name: "spring-kafka", version: '2.1.4.RELEASE'
+    compile group: 'org.springframework.integration', name: 'spring-integration-kafka', version: '2.3.0.RELEASE'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
