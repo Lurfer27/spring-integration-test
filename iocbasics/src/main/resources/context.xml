@@ -20,19 +20,7 @@
                        method="toList"/>
 
     <beans:bean id="csvReaderService"
-                class="com.yodel.integration.services.StringCsvReader">
-        <beans:lookup-method name="createStringBuilder" bean="stringBuilderBean"/>
-    </beans:bean>
-
-    <beans:bean id="stringReaderBean"
-                class="java.io.StringReader"
-                scope="prototype">
-        <beans:constructor-arg value=""/>
-    </beans:bean>
-
-    <beans:bean id="stringBuilderBean"
-                class="java.lang.StringBuilder"
-                scope="prototype"/>
+                class="com.yodel.integration.services.StringCsvReader"/>
 
     <context:component-scan base-package="com.yodel.integration"/>
 </beans:beans>

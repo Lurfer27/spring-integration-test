@@ -1,0 +1,14 @@
+{
+  "requestHeaders": {
+    "accept-encoding": "gzip,deflate",
+    "content-type": "text/xml;charset=UTF-8",
+    "soapaction": "\"process\"",
+    "content-length": "535",
+    "host": "10.0.2.15:4002",
+    "user-agent": "Apache-HttpClient/4.1.1 (java 1.5)",
+    "via": "1.1 AAAAAKXMZBI-",
+    "x-client-ip": "10.0.2.15",
+    "x-global-transaction-id": "896fba955aa7f29800004250"
+  },
+  "requestBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:dcl=\"http://xmlns.hdnl.com/DCLTrackingInfoInterface\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <dcl:TransmitXML>\n         <!--Optional:-->\n         <dcl:xDoc>\n\t\t<HostID Value=\"WY8M001\" Status=\"001\" Date=\"18/02/18 01:04:31\" CallingSystem=\"DCL\">\n\t\t<UPI DateScanned=\"18/02/18 01:04:29\">836930598977A931</UPI>\n\t\t<Signature/>\n\t\t<Customer AccountNumber=\"\"/>\n\t\t</HostID>\n         </dcl:xDoc>\n      </dcl:TransmitXML>\n   </soapenv:Body>\n</soapenv:Envelope>"
+}

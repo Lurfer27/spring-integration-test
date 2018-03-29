@@ -9,7 +9,6 @@
 
 
     <int:channel id="inputToKafka"/>
-
     <int:channel id="failureChannel"/>
     <int:channel id="successChannel"/>
 
@@ -17,7 +16,7 @@
                                         kafka-template="template"
                                         auto-startup="true"
                                         channel="inputToKafka"
-                                        topic="pan-collect-plus"
+                                        topic="collectplus-events-inbound"
                                         send-failure-channel="failureChannel"
                                         send-success-channel="successChannel"/>
 
@@ -26,6 +25,7 @@
             <bean class="org.springframework.kafka.core.DefaultKafkaProducerFactory">
                 <constructor-arg>
                     <map>
+                        <!--<entry key="bootstrap.servers" value="ckbdd01lv.yodel.net:9092,ckbdd02lv.yodel.net:9092,ckbdd03lv.yodel.net:9092"/> -->
                         <entry key="bootstrap.servers" value="localhost:9092"/>
                         <entry key="key.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
                         <entry key="value.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>

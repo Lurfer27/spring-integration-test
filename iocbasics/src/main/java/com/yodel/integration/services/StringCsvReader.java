@@ -1,48 +1,34 @@
 package com.yodel.integration.services;
 
-import org.springframework.retry.annotation.Backoff;
-import org.springframework.retry.annotation.Retryable;
-
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class StringCsvReader implements CsvReader<StringReader> {
+public class StringCsvReader implements CsvReader<StringReader> {
 
-    private static final char Comma = ',';
+    private static final char comma = ',';
 
-    private static boolean IsDelimiter(char inChar) {
-        if (inChar == Comma) {
+    private boolean isDelimiter(char inChar) {
+        if (inChar == comma) {
             return true;
         }
         return false;
     }
 
-    protected abstract StringBuilder createStringBuilder();
-
-    @Retryable(
-            value = {IllegalArgumentException.class},
-            maxAttempts = 3,
-            backoff = @Backoff(delay = 1000, multiplier = 2)
-    )
     @Override
     public List<?> toList(StringReader csvRecord) {
-
-        if (csvRecord != null) {
-            throw new IllegalArgumentException("ddd");
-        }
 
         List<String> list = new ArrayList<>();
 
         try {
-            StringBuilder stringBuilder = this.createStringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
             int charAsInt = csvRecord.read();
             while (charAsInt != -1) {
                 char c = (char) charAsInt;
-                if (IsDelimiter(c)) {
+                if (isDelimiter(c)) {
                     list.add(stringBuilder.toString());
-                    stringBuilder = this.createStringBuilder();
+                    stringBuilder = new StringBuilder();
                 } else {
                     stringBuilder.append(c);
                 }
