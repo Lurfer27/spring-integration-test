@@ -1,19 +1,23 @@
 package com.yodel.integration;
 
 import com.yodel.integration.services.CsvReader;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.StringReader;
 import java.util.List;
 
 @SpringBootApplication
+@ImportResource(locations = { "classpath:context.xml" })
 public class Application {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
-        CsvReader csvReader = context.getBean("csvGateway", CsvReader.class);
+        ConfigurableApplicationContext ctx = SpringApplication.run(Application.class);
+        CsvReader csvReader = ctx.getBean("csvGateway", CsvReader.class);
 
         for (String s : args) {
             System.out.println(s);
@@ -26,7 +30,7 @@ public class Application {
             }
         }
 
-        String myString = context.getBean("getMessage", String.class);
+        String myString = ctx.getBean("getMessage", String.class);
         System.out.println(myString);
     }
 }

@@ -16,7 +16,6 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-integration")
-    compile("org.springframework.retry:spring-retry:1.2.2.RELEASE")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
