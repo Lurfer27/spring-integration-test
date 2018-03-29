@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration/kafka http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <int:channel id="inputToKafka"/>
+    <int:channel id="failureChannel"/>
+    <int:channel id="successChannel"/>
+
+    <int-kafka:outbound-channel-adapter id="kafkaOutboundChannelAdapter"
+                                        kafka-template="template"
+                                        auto-startup="true"
+                                        channel="inputToKafka"
+                                        topic="collectplus-events-inbound"
+                                        send-failure-channel="failureChannel"
+                                        send-success-channel="successChannel"/>
+
+    <bean id="template" class="org.springframework.kafka.core.KafkaTemplate">
+        <constructor-arg>
+            <bean class="org.springframework.kafka.core.DefaultKafkaProducerFactory">
+                <constructor-arg>
+                    <map>
+                        <!--<entry key="bootstrap.servers" value="ckbdd01lv.yodel.net:9092,ckbdd02lv.yodel.net:9092,ckbdd03lv.yodel.net:9092"/> -->
+                        <entry key="bootstrap.servers" value="localhost:9092"/>
+                        <entry key="key.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
+                        <entry key="value.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
+                    </map>
+                </constructor-arg>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+</beans>
