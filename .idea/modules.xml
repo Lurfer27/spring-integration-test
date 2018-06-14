@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application.iml" group="application" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application_main.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application_main.iml" group="application" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/application/application_test.iml" filepath="$PROJECT_DIR$/.idea/modules/application/application_test.iml" group="application" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inbound-channel-adapter.iml" filepath="$PROJECT_DIR$/.idea/modules/inbound-channel-adapter.iml" group="inbound-channel-adapter" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inbound-channel-adapter-with-channel/inbound-channel-adapter-with-channel.iml" filepath="$PROJECT_DIR$/.idea/modules/inbound-channel-adapter-with-channel/inbound-channel-adapter-with-channel.iml" group="inbound-channel-adapter-with-channel" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_main.iml" group="inbound-channel-adapter" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/inbound-channel-adapter/inbound-channel-adapter_test.iml" group="inbound-channel-adapter" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iocbasics.iml" filepath="$PROJECT_DIR$/.idea/modules/iocbasics.iml" group="iocbasics" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iocbasics/iocbasics_main.iml" filepath="$PROJECT_DIR$/.idea/modules/iocbasics/iocbasics_main.iml" group="iocbasics" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iocbasics/iocbasics_test.iml" filepath="$PROJECT_DIR$/.idea/modules/iocbasics/iocbasics_test.iml" group="iocbasics" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kafka-outbound-channel-adapter.iml" filepath="$PROJECT_DIR$/.idea/modules/kafka-outbound-channel-adapter.iml" group="kafka-outbound-channel-adapter" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kafka-outbound-channel-adapter/kafka-outbound-channel-adapter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kafka-outbound-channel-adapter/kafka-outbound-channel-adapter_main.iml" group="kafka-outbound-channel-adapter" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kafka-outbound-channel-adapter/kafka-outbound-channel-adapter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kafka-outbound-channel-adapter/kafka-outbound-channel-adapter_test.iml" group="kafka-outbound-channel-adapter" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/library.iml" group="library" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/library_main.iml" filepath="$PROJECT_DIR$/.idea/modules/library/library_main.iml" group="library" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/library_test.iml" filepath="$PROJECT_DIR$/.idea/modules/library/library_test.iml" group="library" />
-      <module fileurl="file://$PROJECT_DIR$/spring-integration-test.iml" filepath="$PROJECT_DIR$/spring-integration-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo_main.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo_test.iml" group="demo" />
     </modules>
   </component>
 </project>
