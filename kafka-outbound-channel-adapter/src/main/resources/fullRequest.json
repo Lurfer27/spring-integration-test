@@ -1,0 +1,15 @@
+{
+  "requestHeaders": {
+    "accept-encoding": "gzip,deflate",
+    "content-type": "text/xml;charset=UTF-8",
+    "soapaction": "\"process\"",
+    "content-length": "535",
+    "host": "10.0.2.15:4002",
+    "user-agent": "Apache-HttpClient/4.1.1 (java 1.5)",
+    "via": "1.1 AAAAAKXMZBI-",
+    "x-client-ip": "10.0.2.15",
+    "x-global-transaction-id": "896fba955aa7f29800004250"
+  },
+  "requestBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:dcl=\"http://xmlns.hdnl.com/DCLTrackingInfoInterface\"><soapenv:Header/><soapenv:Body><dcl:TransmitXML><dcl:xDoc><HostID Value=\"HOSTIDVALUE\" Status=\"001\" Date=\"HOSTIDDATE\" CallingSystem=\"CALLINGSYSTEM\" Reason=\"HOSTIDREASON  \"><UPI DateScanned=\"UPIDATESCANNED\">UPI</UPI><Signature DriverName=\"SIGNATUREDRIVERNAME\" Status=\"SIGNATURESTATUS\">SIGNATURE</Signature><Customer AccountNumber=\"CUSTOMERACCOUNTNUMBER\">CUSTOMER</Customer><Container ContainerID=\"CONTAINERCONTAINERID\" Status=\"CONTAINERSTATUS\">CONTAINER</Container></HostID></dcl:xDoc></dcl:TransmitXML></soapenv:Body></soapenv:Envelope>"
+}
+

@@ -23,5 +23,4 @@
     <beans:bean id="csvReaderService"
                 class="com.yodel.integration.services.StringCsvReader"/>
 
-    <context:component-scan base-package="com.yodel.integration"/>
 </beans:beans>
